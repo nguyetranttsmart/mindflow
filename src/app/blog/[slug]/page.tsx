@@ -1,6 +1,3 @@
-import React from "react";
-import { blogs } from "@/data/blogs";
-import { notFound } from "next/navigation";
 import BlogInfomation from "@/components/blog/BlogInfomation";
 import { createClient } from "@/prismicio";
 
