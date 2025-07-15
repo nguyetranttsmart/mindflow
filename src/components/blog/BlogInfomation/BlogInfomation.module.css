@@ -1,0 +1,64 @@
+.blogInfomation {
+    margin-top: 20px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px
+}
+
+.blogHeader {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.authorName {
+    font-size: 28px;
+    color: rgb(175, 175, 175);
+}
+
+.releaseDay {
+    font-size: 25px;
+}
+
+.blogMainContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.blogTitle {
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.blogExcerpt {
+    font-size: 20px;
+    color: rgb(148, 147, 147);
+
+
+}
+
+.blogImage {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+}
+
+@media only screen and (min-width: 1200px) {
+    .blogInfomation {
+        max-width: 1200px;
+        width: 100%;
+        height: auto;
+        margin: 20px auto;
+    }
+
+    .blogImage {
+        height: 900px;
+    }
+
+
+
+}

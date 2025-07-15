@@ -1,0 +1,31 @@
+.header {
+    top: 0;
+    left: 0;
+    background-color: rgb(252, 252, 252);
+    border-bottom: 2px solid rgb(224, 224, 224);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 10px;
+    place-items: center;
+
+
+}
+
+.navItem {
+
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    width: 100%;
+    max-width: fit-content;
+
+
+}
+
+.active {
+    border-bottom: 2px solid grey;
+}

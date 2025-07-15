@@ -1,0 +1,87 @@
+.blogSection {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.blog {
+    border: 1px solid rgb(240, 240, 240);
+}
+
+.blogContent {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.coverImage {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    position: relative;
+}
+
+.blogLabel {
+    display: flex;
+    gap: 20px;
+
+}
+
+.authorAvatar {
+    border-radius: 50px;
+}
+
+.authorName {
+    font-size: 18px;
+    color: rgb(175, 175, 175);
+}
+
+.releaseDay {
+    font-size: 20px;
+}
+
+.blogSubContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.blogTitle {
+    font-size: 35px;
+    line-height: 35px;
+
+
+}
+
+.blogExpert {
+    font-size: 20px;
+    color: rgb(100, 100, 100);
+    line-height: 25px;
+    text-align: justify;
+
+}
+
+.bottomLine {
+    color: rgb(211, 209, 209)
+}
+
+.authorAvatar {
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (min-width: 1200px) {
+    .blogSection {
+        max-width: 1200px;
+        width: 100%;
+        height: auto;
+        margin: 20px auto;
+    }
+
+    .coverImage {
+        max-width: 100%;
+    }
+
+
+}

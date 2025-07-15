@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ["images.prismic.io"], // 👈 thêm domain Prismic vào đây
+  },
 };
-
 export default nextConfig;

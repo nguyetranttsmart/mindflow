@@ -1,0 +1,74 @@
+{
+  "format": "custom",
+  "id": "homepage",
+  "label": "homepage",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "banners": {
+        "type": "Group",
+        "config": {
+          "label": "banners",
+          "repeat": true,
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "label": "image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      },
+      "contact": {
+        "type": "Text",
+        "config": {
+          "label": "contact",
+          "placeholder": ""
+        }
+      }
+    },
+    "Metadata": {
+      "metatitle": {
+        "type": "Text",
+        "config": {
+          "label": "metaTitle",
+          "placeholder": ""
+        }
+      },
+      "metadescription": {
+        "type": "Text",
+        "config": {
+          "label": "metaDescription",
+          "placeholder": ""
+        }
+      },
+      "opengraph": {
+        "type": "Group",
+        "config": {
+          "label": "openGraph",
+          "repeat": true,
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "label",
+                "placeholder": ""
+              }
+            },
+            "value": {
+              "type": "Text",
+              "config": {
+                "label": "value",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
