@@ -1,9 +1,16 @@
 .blogInfomation {
-    margin-top: 20px;
-    padding: 0 20px;
+    background-color: var(--background);
+    ;
+}
+
+.blog {
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
-    gap: 30px
+    gap: 30px;
+    margin-top: 20%;
+    box-shadow: rgba(112, 112, 112, 0.35) 0px 5px 15px;
+    z-index: 1;
 }
 
 .blogHeader {
@@ -15,11 +22,12 @@
 
 .authorName {
     font-size: 28px;
-    color: rgb(175, 175, 175);
+    color: rgb(255, 255, 255);
 }
 
 .releaseDay {
-    font-size: 25px;
+    font-size: 20px;
+    color: rgb(212, 212, 212);
 }
 
 .blogMainContent {
@@ -29,9 +37,10 @@
 }
 
 .blogTitle {
-    font-size: 30px;
+    font-size: 35px;
     line-height: 30px;
     font-weight: bold;
+    color: var(--foreground);
 }
 
 .blogExcerpt {
@@ -47,12 +56,28 @@
     position: relative;
 }
 
+.blogContent {
+    font-size: 20px;
+    text-align: justify;
+    color: var(--foreground);
+}
+
+.blogContent h2 {
+    font-size: 50px;
+}
+
+.blogContent img {
+    margin: 0 auto;
+}
+
 @media only screen and (min-width: 1200px) {
-    .blogInfomation {
+    .blog {
         max-width: 1200px;
         width: 100%;
         height: auto;
-        margin: 20px auto;
+        margin: 100px auto 0;
+        padding: 50px 20px;
+
     }
 
     .blogImage {

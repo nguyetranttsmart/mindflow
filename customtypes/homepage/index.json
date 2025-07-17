@@ -22,13 +22,6 @@
             }
           }
         }
-      },
-      "contact": {
-        "type": "Text",
-        "config": {
-          "label": "contact",
-          "placeholder": ""
-        }
       }
     },
     "Metadata": {

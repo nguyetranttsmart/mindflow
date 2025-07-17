@@ -24,6 +24,6 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Page() {
   const client = createClient();
   const blogs = await client.getAllByType("blog", {});
-
-  return <HomePage blogs={blogs} />;
+  const homepage = await client.getSingle("homepage");
+  return <HomePage blogs={blogs} homepage={homepage} />;
 }

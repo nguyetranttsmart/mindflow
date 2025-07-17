@@ -1,7 +1,7 @@
 {
   "format": "custom",
   "id": "author",
-  "label": "Author",
+  "label": "author",
   "repeatable": true,
   "status": true,
   "json": {

@@ -70,11 +70,11 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 /**
- * Content for Author documents
+ * Content for author documents
  */
 interface AuthorDocumentData {
   /**
-   * name field in *Author*
+   * name field in *author*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -85,7 +85,7 @@ interface AuthorDocumentData {
   name: prismic.KeyTextField;
 
   /**
-   * avatar field in *Author*
+   * avatar field in *author*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -97,7 +97,7 @@ interface AuthorDocumentData {
 }
 
 /**
- * Author document from Prismic
+ * author document from Prismic
  *
  * - **API ID**: `author`
  * - **Repeatable**: `true`
@@ -261,18 +261,7 @@ interface HomepageDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  banners: prismic.GroupField<Simplify<HomepageDocumentDataBannersItem>>;
-
-  /**
-   * contact field in *homepage*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.contact
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  contact: prismic.KeyTextField /**
+  banners: prismic.GroupField<Simplify<HomepageDocumentDataBannersItem>> /**
    * metaTitle field in *homepage*
    *
    * - **Field Type**: Text

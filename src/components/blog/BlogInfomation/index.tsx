@@ -2,6 +2,8 @@ import { PrismicRichText } from "@prismicio/react";
 import { notFound } from "next/navigation";
 import { BlogDocument } from "../../../../prismicio-types";
 import styles from "./BlogInfomation.module.css";
+import Image from "next/image";
+import { isFilled } from "@prismicio/client";
 
 export default function BlogInfomation({
   blog,
@@ -11,45 +13,65 @@ export default function BlogInfomation({
   if (!blog) return notFound();
   return (
     <div className={styles.blogInfomation}>
-      <p>{blog.data.title}</p>
-      <PrismicRichText field={blog.data.content} />
-      {/* <div className={styles.blogHeader}>
-        <div className={styles.authorAvatar}>
-          <Image
-            src="/images/blog1.jpg"
-            width={60}
-            height={60}
-            alt="authorAvatar"
-            style={{ borderRadius: "50%" }}
-          />
+      <div className={styles.blog}>
+        <div className={styles.blogHeader}>
+          <div className={styles.authorAvatar}>
+            <Image
+              src={
+                (isFilled.contentRelationship(blog.data.authors) &&
+                  blog.data.authors.data?.avatar.url) ||
+                "unknown"
+              }
+              width={60}
+              height={60}
+              alt="authorAvatar"
+              style={{ borderRadius: "50%" }}
+            />
+          </div>
+          <div className={styles.blogMeta}>
+            <p className={styles.authorName}>
+              {(isFilled.contentRelationship(blog.data.authors) &&
+                blog.data.authors.data?.name) ||
+                "unknown"}
+            </p>
+            <p className={styles.releaseDay}>
+              {" "}
+              {blog.data.date
+                ? new Date(blog.data.date).toLocaleString("vi-VN", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })
+                : "N/A"}
+            </p>
+          </div>
         </div>
-        <div className={styles.blogMeta}>
-          <p className={styles.authorName}>
-            {blog.authors[0].name || "unknown"}
-          </p>
-          <p className={styles.releaseDay}>{blog.date}</p>
+        <div className={styles.blogMainContent}>
+          <div className={styles.blogTitle}>
+            <p>{blog.data.title}</p>
+          </div>
+          <div className={styles.blogExcerpt}>
+            <p>{blog.data.excerpt}</p>
+          </div>
+          <div className={styles.blogImage}>
+            {blog.data?.image?.url && (
+              <Image
+                src={blog.data?.image?.url || ""}
+                alt="blogImage"
+                style={{ objectFit: "cover" }}
+                quality={100}
+                priority
+                fill
+              />
+            )}
+          </div>
+          <div className={styles.blogContent}>
+            <PrismicRichText field={blog.data.content} />
+          </div>
         </div>
       </div>
-      <div className={styles.blogMainContent}>
-        <div className={styles.blogTitle}>
-          <p>{blog.title}</p>
-        </div>
-        <div className={styles.blogExcerpt}>
-          <p>{blog.excerpt}</p>
-        </div>
-        <div className={styles.blogImage}>
-          <Image
-            src={blog.coverImage}
-            alt="blogImage"
-            style={{ objectFit: "cover" }}
-            quality={100}
-            fill
-          />
-        </div>
-        <div className={styles.blogContent}>
-          <p>{blog.content}</p>
-        </div>
-      </div> */}
     </div>
   );
 }

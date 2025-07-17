@@ -1,30 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BlogDocument } from "../../../../prismicio-types";
+import { BlogDocument, HomepageDocument } from "../../../../prismicio-types";
 import styles from "./HomePage.module.css";
+import Slider from "./Slider";
+import Blogs from "../../blog/BlogList";
 
-export default function HomePage(props: { blogs: BlogDocument<string>[] }) {
-  const { blogs } = props;
+export default function HomePage(props: {
+  blogs: BlogDocument<string>[];
+  homepage: HomepageDocument;
+}) {
+  const { blogs, homepage } = props;
+  const banners = homepage.data.banners;
   return (
-    <div className="grid grid-cols-4 gap-4">
-      {blogs.map((blog) => (
-        <div key={blog.uid} className="border">
-          <Link className="font-bold text-4xl" href={`/blog/${blog.uid}`}>
-            {blog.data.title}
-          </Link>
-          <p>{blog.data.excerpt}</p>
-          {blog.data?.image?.url && (
-            <Image
-              src={blog.data?.image?.url || ""}
-              alt=""
-              width={500}
-              height={350}
-            />
-          )}
-        </div>
-      ))}
-      {/* <div className={styles.heroSection}>
-        <Slider />
+    <div className={styles.homePage}>
+      <div className={styles.heroSection}>
+        <Slider banners={banners} />
         <div className={styles.heroSectionLabel}>
           <p>
             Blog <span>Website</span>
@@ -32,9 +22,9 @@ export default function HomePage(props: { blogs: BlogDocument<string>[] }) {
           <button>Explore more</button>
         </div>
       </div>
-      <div>
-        <Blogs />
-      </div> */}
+      <div className={styles.blogList}>
+        <Blogs blogs={blogs} />
+      </div>
     </div>
   );
 }

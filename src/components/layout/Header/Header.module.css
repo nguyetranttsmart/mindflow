@@ -1,9 +1,23 @@
 .header {
+    position: fixed;
     top: 0;
-    left: 0;
-    background-color: rgb(252, 252, 252);
-    border-bottom: 2px solid rgb(224, 224, 224);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100%;
+    background-color: transparent;
+    transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out;
+    z-index: 1000;
+    backdrop-filter: none;
+    padding: 20px 0;
+}
+
+.scrolled {
+    background-color: var(--foreground);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px);
+}
+
+.scrolled li {
+    color: var(--background);
+
 }
 
 .navList {
@@ -16,16 +30,16 @@
 }
 
 .navItem {
-
-    font-size: 16px;
-    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--foreground);
     padding: 10px;
     width: 100%;
     max-width: fit-content;
 
-
 }
 
 .active {
-    border-bottom: 2px solid grey;
+    border-bottom: 3px solid var(--foreground);
+
 }

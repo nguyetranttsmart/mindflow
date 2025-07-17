@@ -1,6 +1,8 @@
+.homePage {
+    background-color: var(--background);
+}
+
 .heroSection {
-    width: 100%;
-    max-width: 500px;
     position: relative;
     height: auto;
     z-index: 1;
@@ -22,17 +24,17 @@
 }
 
 .heroSectionLabel p {
-    color: rgb(255, 255, 255);
+    color: var(--foreground);
     font-size: 60px;
 }
 
 .heroSectionLabel span {
-    color: rgb(100, 100, 100);
+    color: var(--background);
 }
 
 .heroSectionLabel button {
-    background-color: white;
-    color: black;
+    background-color: var(--foreground);
+    color: var(--background);
     padding: 12px 24px;
     font-size: 18px;
     font-weight: 600;
@@ -45,8 +47,8 @@
 }
 
 .heroSectionLabel button:hover {
-    background-color: black;
-    color: white;
+    background-color: var(--background);
+    color: var(--foreground);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }

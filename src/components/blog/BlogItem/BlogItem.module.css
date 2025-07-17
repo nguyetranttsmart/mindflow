@@ -1,56 +1,89 @@
 .blog {
-    border: 1px solid rgb(240, 240, 240);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.blog:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px;
 }
 
 .blogContent {
-    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px
+    justify-content: flex-end;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--foreground);
+    padding: 10px
 }
 
 .blogImage {
     width: 100%;
+    height: 700px;
     aspect-ratio: 2 / 1;
     position: relative;
+    z-index: 1;
+}
+
+.blogImage::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    z-index: 2;
+    pointer-events: none;
 }
 
 .blogLabel {
     display: flex;
-    gap: 20px;
-
-}
-
-.authorAvatar {
-    border-radius: 50px;
+    gap: 10px;
 }
 
 .authorName {
-    font-size: 18px;
-    color: rgb(175, 175, 175);
+    font-size: 20px;
+    color: var(--foreground);
 }
 
+
+
 .releaseDay {
-    font-size: 20px;
+    font-size: 18px;
+    color: rgb(179, 176, 176);
+
 }
 
 .blogSubContent {
     display: flex;
     flex-direction: column;
-    gap: 20px
+    gap: 10px
 }
 
 .blogTitle {
-    font-size: 35px;
-    line-height: 35px;
+    font-size: 25px;
+    line-height: 30px;
+    color: var(--foreground);
 
 
 }
 
 .blogExpert {
-    font-size: 20px;
-    color: rgb(100, 100, 100);
-    line-height: 25px;
+    font-size: 16px;
+    color: rgb(173, 173, 173);
+    line-height: 20px;
     text-align: justify;
 
 }
@@ -62,10 +95,13 @@
 .authorAvatar {
     display: flex;
     align-items: center;
+    border-radius: 50px;
+
 }
 
 @media only screen and (min-width: 1200px) {
     .blogImage {
-        max-width: 100%;
+        width: 100%;
+        height: auto;
     }
 }
