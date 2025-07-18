@@ -208,6 +208,24 @@ interface BlogDocumentData {
 export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
+interface FooterDocumentData {}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
 /**
  * Item in *homepage → banners*
  */
@@ -311,7 +329,11 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = AuthorDocument | BlogDocument | HomepageDocument;
+export type AllDocumentTypes =
+  | AuthorDocument
+  | BlogDocument
+  | FooterDocument
+  | HomepageDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -338,6 +360,8 @@ declare module "@prismicio/client" {
       AuthorDocumentData,
       BlogDocument,
       BlogDocumentData,
+      FooterDocument,
+      FooterDocumentData,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataBannersItem,

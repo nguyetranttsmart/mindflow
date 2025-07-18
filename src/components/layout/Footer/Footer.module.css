@@ -1,0 +1,106 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 100px;
+    background-color: rgb(0, 0, 0);
+
+
+}
+
+
+.heading {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.leftSection form {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--foreground);
+    color: var(--background);
+    border-radius: 5px;
+}
+
+.iconList {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    font-size: 20;
+
+}
+
+.rightSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.rightSection .rate {
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 1;
+
+}
+
+
+
+
+.starIcon span {
+    font-size: 30px;
+    color: yellow;
+}
+
+.certificateInfo p {
+    font-size: 20px;
+    color: var(--foreground);
+}
+
+.certificateInfo {
+    font-size: 15px;
+    color: gray;
+}
+
+.link h4 {
+    font-size: 23px;
+    color: var(--foreground);
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    color: gray;
+}
+
+@media only screen and (min-width: 1200px) {
+    .footer {
+        display: flex;
+        flex-direction: row;
+        max-width: 1200px;
+        margin: 50px auto;
+        justify-content: space-between;
+
+    }
+
+
+    .rightSection {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 50px;
+        width: 30%;
+
+    }
+
+    .rightSection .link {
+        order: 1
+    }
+
+    .rightSection .certificate {
+        order: 0
+    }
+}
