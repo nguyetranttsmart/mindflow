@@ -25,5 +25,6 @@ export default async function Page() {
   const client = createClient();
   const blogs = await client.getAllByType("blog", {});
   const homepage = await client.getSingle("homepage");
-  return <HomePage blogs={blogs} homepage={homepage} />;
+  const categories = await client.getAllByType("categories", {});
+  return <HomePage blogs={blogs} homepage={homepage} categories={categories} />;
 }

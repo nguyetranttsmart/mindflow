@@ -1,0 +1,38 @@
+.categoryList {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px;
+    margin-top: 20px;
+    color: white;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+}
+
+.categoryItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-radius: 3px;
+    white-space: nowrap;
+    scroll-snap-align: start;
+    padding: 0 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.categoryItem:hover {
+    background: #636262cb;
+}
+
+@media only screen and (min-width: 1200px) {
+    .categoryList {
+        display: flex;
+        justify-content: center;
+        gap: 100px
+    }
+
+
+
+}

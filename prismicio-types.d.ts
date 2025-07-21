@@ -157,21 +157,6 @@ interface BlogDocumentData {
   date: prismic.TimestampField;
 
   /**
-   * category field in *blog*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Apartment
-   * - **API ID Path**: blog.category
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  category: prismic.SelectField<
-    "Apartment" | "Homestay" | "Villa" | "Hotel",
-    "filled"
-  >;
-
-  /**
    * content field in *blog*
    *
    * - **Field Type**: Rich Text
@@ -194,6 +179,19 @@ interface BlogDocumentData {
   authors: ContentRelationshipFieldWithData<
     [{ id: "author"; fields: ["name", "avatar"] }]
   >;
+
+  /**
+   * category field in *blog*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  category: ContentRelationshipFieldWithData<
+    [{ id: "categories"; fields: ["name"] }]
+  >;
 }
 
 /**
@@ -207,6 +205,49 @@ interface BlogDocumentData {
  */
 export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
+
+/**
+ * Content for category documents
+ */
+interface CategoriesDocumentData {
+  /**
+   * name field in *category*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * description field in *category*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * category document from Prismic
+ *
+ * - **API ID**: `categories`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CategoriesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<CategoriesDocumentData>,
+    "categories",
+    Lang
+  >;
 
 interface FooterDocumentData {}
 
@@ -332,6 +373,7 @@ export type HomepageDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | AuthorDocument
   | BlogDocument
+  | CategoriesDocument
   | FooterDocument
   | HomepageDocument;
 
@@ -360,6 +402,8 @@ declare module "@prismicio/client" {
       AuthorDocumentData,
       BlogDocument,
       BlogDocumentData,
+      CategoriesDocument,
+      CategoriesDocumentData,
       FooterDocument,
       FooterDocumentData,
       HomepageDocument,

@@ -41,15 +41,6 @@
           "placeholder": ""
         }
       },
-      "category": {
-        "type": "Select",
-        "config": {
-          "label": "category",
-          "placeholder": "",
-          "options": ["Apartment", "Homestay", "Villa", "Hotel"],
-          "default_value": "Apartment"
-        }
-      },
       "content": {
         "type": "StructuredText",
         "config": {
@@ -69,6 +60,20 @@
             {
               "id": "author",
               "fields": ["name", "avatar"]
+            }
+          ]
+        }
+      },
+      "category": {
+        "type": "Link",
+        "config": {
+          "label": "category",
+          "select": "document",
+          "repeat": false,
+          "customtypes": [
+            {
+              "id": "categories",
+              "fields": ["name"]
             }
           ]
         }
