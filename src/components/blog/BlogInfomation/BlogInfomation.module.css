@@ -20,9 +20,24 @@
     align-items: center;
 }
 
+.authorAvatar {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.authorAvatar:hover {
+    transform: scale(1.05);
+}
+
 .authorName {
     font-size: 28px;
     color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.authorName:hover {
+    color: #8e8e8e;
 }
 
 .releaseDay {

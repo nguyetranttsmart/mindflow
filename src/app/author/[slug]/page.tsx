@@ -8,22 +8,21 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const client = createClient();
   const { slug } = await params;
-  const category = await client.getByUID("categories", slug);
+  const client = createClient();
+  const author = await client.getByUID("author", slug)
   return {
-    title: category.data.name,
-    description: category.data.description,
-  };
+    title: author.data.name,
+    description: `All blog of ${author.data.name} `,
+  }
 }
-
-export default async function Category({ params }: Props) {
+export default async function Author({ params }: Props) {
   const { slug } = await params;
   const client = createClient();
-  const category = await client.getByUID("categories", slug);
+  const author = await client.getByUID("author", slug)
   const blogs = await client.getAllByType("blog", {
-    filters: [prismic.filter.at("my.blog.category", category.id)],
-  });
+    filters: [prismic.filter.at("my.blog.authors", author.id)]
+  })
   return (
     <div>
       <FilteredBlogs blogs={blogs} />

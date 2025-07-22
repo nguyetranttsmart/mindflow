@@ -1,7 +1,8 @@
-import { isFilled } from '@prismicio/client'
-import Image from 'next/image'
-import Link from 'next/link'
-import { BlogDocument } from '../../../../prismicio-types'
+'use client';
+import { isFilled } from '@prismicio/client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { BlogDocument } from '../../../../prismicio-types';
 
 
 
@@ -11,8 +12,8 @@ export default function BlogsByCategory({ blogs }: { blogs: BlogDocument<string>
 
       {blogs.map((blog) => (
         <Link href={`/blog/${blog.uid}`} key={blog.uid}>
-          <div className=' relative w-[100%] h-50' >
-            <div className='relative z-1 w-[100%] h-[100%] brightness-50 '>
+          <div className=' relative w-[100%] h-50 hover:scale-[1.01] transition ' >
+            <div className='relative z-10 w-[100%] h-[100%] brightness-50 '>
               {blog.data?.image?.url && (
                 <Image
                   src={blog.data?.image?.url || ""}
@@ -24,22 +25,25 @@ export default function BlogsByCategory({ blogs }: { blogs: BlogDocument<string>
                 />
               )}
             </div>
-            <div className='absolute bottom-0 z-2 flex flex-col gap-5 p-2.5'>
+            <div className='absolute bottom-0 z-20 flex flex-col gap-5 p-2.5'>
               <div className='text-2xl'>{blog.data.title}</div>
               <div className='flex gap-5'>
-                <Image
-                  src={
-                    (isFilled.contentRelationship(blog.data.authors) &&
-                      blog.data.authors.data?.avatar.url) ||
-                    "unknown"
-                  }
-                  width={50}
-                  height={50}
-                  alt="authorAvatar"
-                  style={{ borderRadius: "50%" }}
-                />
+                <div >
+                  <Image
+                    src={
+                      (isFilled.contentRelationship(blog.data.authors) &&
+                        blog.data.authors.data?.avatar.url) ||
+                      "unknown"
+                    }
+                    width={50}
+                    height={50}
+                    alt="authorAvatar"
+                    style={{ borderRadius: "50%" }}
+                  />
+                </div>
+
                 <div className='flex flex-col gap-1 text-gray-300'>
-                  <p className=' text-lg'>{(isFilled.contentRelationship(blog.data.authors) && blog.data.authors.data?.name)}</p>
+                  <p className=' text-lg' >{(isFilled.contentRelationship(blog.data.authors) && blog.data.authors.data?.name)}</p>
                   {blog.data.date && (
                     <p>{blog.data.date
                       ? new Date(blog.data.date).toLocaleString("vi-VN", {
@@ -57,7 +61,6 @@ export default function BlogsByCategory({ blogs }: { blogs: BlogDocument<string>
             </div>
 
           </div>
-          <hr className='w-[100%]' />
         </Link>
       ))}
 
