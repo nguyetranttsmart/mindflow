@@ -1,8 +1,7 @@
+import BlogsByCategory from "@/components/blog/BlogsByCategory";
 import { createClient } from "@/prismicio";
-import { Metadata } from "next";
-import React from "react";
 import * as prismic from "@prismicio/client";
-import BlogList from "@/components/blog/BlogList";
+import { Metadata } from "next";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -28,7 +27,7 @@ export default async function Category({ params }: Props) {
   console.log("blogs" + blogs);
   return (
     <div>
-      <BlogList blogs={blogs} />
+      <BlogsByCategory blogs={blogs} />
     </div>
   );
 }
