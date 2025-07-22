@@ -7,7 +7,7 @@ import { BlogDocument } from '../../../../prismicio-types'
 
 export default function BlogsByCategory({ blogs }: { blogs: BlogDocument<string>[] }) {
   return (
-    <div className='grid gap-5 mt-20 mx-auto p-2.5 max-w-[1200px] max-2xl:[grid-template-columns:repeat(auto-fit,minmax(300px,1fr))] max-2xl:[grid-auto-rows:250px ]'>
+    <div className='grid gap-5 mt-20 mx-auto p-2.5 max-w-[1200px]  [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))] [grid-auto-rows:250px ]'>
 
       {blogs.map((blog) => (
         <Link href={`/blog/${blog.uid}`} key={blog.uid}>
