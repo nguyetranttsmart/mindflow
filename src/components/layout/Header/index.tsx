@@ -1,8 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import Search from "@/components/commons/Search";
 import Link from "next/link";
-import styles from "./Header.module.css";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { FaSearch } from "react-icons/fa";
+import styles from "./Header.module.css";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -11,6 +13,8 @@ const navLinks = [
 ];
 export default function Header() {
   const pathname = usePathname();
+  const [isSearching, setIsSearching] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
@@ -23,17 +27,26 @@ export default function Header() {
   return (
     <nav className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <ul className={styles.navList}>
-        {navLinks.map((link) => (
-          <li
-            key={link.href}
-            className={`${styles.navItem} ${
-              pathname === link.href ? styles.active : ""
-            }`}
-          >
-            <Link href={link.href}>{link.label}</Link>
-          </li>
-        ))}
+        <div className={styles.leftItems}>
+          {navLinks.map((link) => (
+            <li
+              key={link.href}
+              className={`${styles.navItem} ${pathname === link.href ? styles.active : ""
+                }`}
+            >
+              <Link href={link.href}>{link.label}</Link>
+            </li>
+          ))}
+
+        </div>
+        <li className={styles.navItem}>
+          <FaSearch className={styles.searchIcon} onClick={() => setIsSearching(!isSearching)} />
+        </li>
       </ul>
+      {isSearching && (
+        <Search placeholder="Search invoices..." />
+
+      )}
     </nav>
   );
 }

@@ -9,6 +9,17 @@
     padding: 10px 0;
 }
 
+.searchIcon {
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: auto;
+    transition: transform 0.2s ease;
+}
+
+.searchIcon:hover {
+    transform: scale(1.2);
+}
+
 .scrolled {
     background-color: var(--foreground);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
@@ -21,12 +32,18 @@
 }
 
 .navList {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 10px;
-    place-items: center;
+    display: flex;
+    max-width: 1300px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
 
-
+.leftItems {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .navItem {
@@ -40,4 +57,25 @@
 
 .active {
     border-bottom: 3px solid rgb(170, 169, 169);
+}
+
+.searchInput {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    transition: width 0.3s ease;
+
+}
+
+.searchWrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
 }
