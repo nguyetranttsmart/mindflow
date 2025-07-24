@@ -1,6 +1,8 @@
 .blogInfomation {
     background-color: var(--background);
-    ;
+    margin-top: 160px;
+
+
 }
 
 .blog {
@@ -8,7 +10,6 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    margin-top: 20%;
     box-shadow: rgba(112, 112, 112, 0.35) 0px 5px 15px;
     z-index: 1;
 }

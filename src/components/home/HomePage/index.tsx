@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 import {
   BlogDocument,
   CategoriesDocument,
@@ -9,14 +8,25 @@ import styles from "./HomePage.module.css";
 import Slider from "./Slider";
 import Blogs from "../../blog/BlogList";
 import Categories from "@/components/categories";
+import { useEffect, useRef } from "react";
 
 export default function HomePage(props: {
   blogs: BlogDocument<string>[];
   categories: CategoriesDocument<string>[];
   homepage: HomepageDocument;
+  query: string;
 }) {
-  const { blogs, categories, homepage } = props;
+  const { blogs, categories, homepage, query } = props;
   const banners = homepage.data.banners;
+  const blogListRef = useRef<HTMLDivElement>(null);
+  const handleExploreClick = () => {
+    window.scrollBy({ top: 1000, behavior: "smooth" });
+  };
+  useEffect(() => {
+    if (query && blogListRef.current) {
+      blogListRef.current.scrollIntoView({ behavior: "auto" });
+    }
+  }, [query]);
   return (
     <div className={styles.homePage}>
       <div className={styles.heroSection}>
@@ -25,14 +35,18 @@ export default function HomePage(props: {
           <p>
             Blog <span>Website</span>
           </p>
-          <button>Explore more</button>
+          <button onClick={handleExploreClick}>Explore more</button>
         </div>
       </div>
-      <div className={styles.categoryList}>
+      <div className={styles.categoryList} ref={blogListRef}>
         <Categories categories={categories} />
       </div>
       <div className={styles.blogList}>
-        <Blogs blogs={blogs} />
+        {blogs.length > 0 ? (
+          <Blogs blogs={blogs} />
+        ) : (
+          <p className="text-center mt-5 text-2xl">No blog availale :v</p>
+        )}
       </div>
     </div>
   );

@@ -14,12 +14,6 @@ export default function Slider({
 
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
-    console.log(
-      "Banner item keys:",
-      banners.map((item) => Object.keys(item))
-    );
-  }, []);
-  useEffect(() => {
     if (imageUrls.length === 0) return;
 
     const intervalId = setInterval(() => {
