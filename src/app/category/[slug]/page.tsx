@@ -26,7 +26,7 @@ export default async function Category({ params }: Props) {
   });
   return (
     <div>
-      <FilteredBlogs blogs={blogs} />
+      <FilteredBlogs blogs={blogs} label={category.data.name} />
     </div>
   );
 }

@@ -6,8 +6,10 @@ import { BlogDocument } from "../../../../prismicio-types";
 
 export default function FilteredBlogs({
   blogs,
+  label,
 }: {
   blogs: BlogDocument<string>[];
+  label?: string | null;
 }) {
   return (
     <div className=" mx-auto h-auto">
@@ -19,6 +21,9 @@ export default function FilteredBlogs({
           className="absolute top-1/2 left-1/2 w-[200vh] h-[110vh] -translate-x-1/2 -translate-y-1/2"
         ></iframe>
       </div>
+      <h1 className="text-center text-3xl md:text-5xl mt-20">
+        All Blogs Of <b className="md:text-6xl">{label}</b>
+      </h1>
       <div className="grid gap-5  p-2.5 w-full md:max-w-[1200px] mx-auto mt-5 [grid-template-columns:repeat(auto-fit,minmax(400px,1fr))] [grid-auto-rows:250px ]">
         {blogs.map((blog) => (
           <div key={blog.uid}>
