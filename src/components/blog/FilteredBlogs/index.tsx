@@ -10,13 +10,13 @@ export default function FilteredBlogs({
   blogs: BlogDocument<string>[];
 }) {
   return (
-    <div className="w-full mx-auto">
-      <div className="w-full  max-w-full overflow-hidden   brightness-60">
+    <div className=" mx-auto h-auto">
+      <div className="relative w-full h-[100vh] overflow-hidden brightness-50">
         <iframe
-          src="https://player.vimeo.com/video/103684916"
+          src="https://player.vimeo.com/video/103684916?background=1&autoplay=1&loop=1&byline=0&title=0"
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
-          className="md:w-full md:h-[1100px] relative"
+          className="absolute top-1/2 left-1/2 w-[200vh] h-[110vh] -translate-x-1/2 -translate-y-1/2"
         ></iframe>
       </div>
       <div className="grid gap-5  p-2.5 w-full md:max-w-[1200px] mx-auto mt-5 [grid-template-columns:repeat(auto-fit,minmax(400px,1fr))] [grid-auto-rows:250px ]">

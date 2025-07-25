@@ -25,22 +25,26 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Page({
   searchParams,
 }: {
-  searchParams?: { query?: string };
+  searchParams?: Promise<{ query?: string }>;
 }) {
   const client = createClient();
-  const filters = searchParams?.query
-    ? [prismic.filter.fulltext("my.blog.title", searchParams?.query)]
-    : [];
-  const blogs = await client.getAllByType("blog", { filters });
+  const resolveParams = await searchParams;
+  const query = resolveParams?.query || "";
 
+  const filters = query
+    ? [prismic.filter.fulltext("my.blog.title", query)]
+    : [];
+
+  const blogs = await client.getAllByType("blog", { filters });
   const homepage = await client.getSingle("homepage");
-  const categories = await client.getAllByType("categories", {});
+  const categories = await client.getAllByType("categories");
+
   return (
     <HomePage
       blogs={blogs}
       homepage={homepage}
       categories={categories}
-      query={searchParams?.query || ""}
+      query={query}
     />
   );
 }
