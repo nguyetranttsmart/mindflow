@@ -18,13 +18,12 @@ export default function HomePage(props: {
 }) {
   const { blogs, categories, homepage, query } = props;
   const banners = homepage.data.banners;
-  const blogListRef = useRef<HTMLDivElement>(null);
   const handleExploreClick = () => {
-    window.scrollBy({ top: 1000, behavior: "smooth" });
+    window.scrollBy({ top: 900, behavior: "smooth" });
   };
   useEffect(() => {
-    if (query && blogListRef.current) {
-      blogListRef.current.scrollIntoView({ behavior: "auto" });
+    if (query) {
+      window.scrollBy({ top: 900, behavior: "auto" });
     }
   }, [query]);
   return (
@@ -38,7 +37,7 @@ export default function HomePage(props: {
           <button onClick={handleExploreClick}>Explore more</button>
         </div>
       </div>
-      <div className={styles.categoryList} ref={blogListRef}>
+      <div className={styles.categoryList}>
         <Categories categories={categories} />
       </div>
       <div className={styles.blogList}>

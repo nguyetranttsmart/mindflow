@@ -1,11 +1,10 @@
-"use client"
+"use client";
 import { isFilled } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
 import Image from "next/image";
 import { notFound, useRouter } from "next/navigation";
 import { BlogDocument } from "../../../../prismicio-types";
 import styles from "./BlogInfomation.module.css";
-
 export default function BlogInfomation({
   blog,
 }: {
@@ -18,12 +17,15 @@ export default function BlogInfomation({
     <div className={styles.blogInfomation}>
       <div className={styles.blog}>
         <div className={styles.blogHeader}>
-          <div className={styles.authorAvatar} onClick={() => {
-            const author = blog.data.authors
-            if (isFilled.contentRelationship(author)) {
-              router.push(`/author/${author.uid}`)
-            }
-          }}>
+          <div
+            className={styles.authorAvatar}
+            onClick={() => {
+              const author = blog.data.authors;
+              if (isFilled.contentRelationship(author)) {
+                router.push(`/author/${author.uid}`);
+              }
+            }}
+          >
             <Image
               src={
                 (isFilled.contentRelationship(blog.data.authors) &&
@@ -37,12 +39,15 @@ export default function BlogInfomation({
             />
           </div>
           <div className={styles.blogMeta}>
-            <p className={styles.authorName} onClick={() => {
-              const author = blog.data.authors
-              if (isFilled.contentRelationship(author)) {
-                router.push(`/author/${author.uid}`)
-              }
-            }}>
+            <p
+              className={styles.authorName}
+              onClick={() => {
+                const author = blog.data.authors;
+                if (isFilled.contentRelationship(author)) {
+                  router.push(`/author/${author.uid}`);
+                }
+              }}
+            >
               {(isFilled.contentRelationship(blog.data.authors) &&
                 blog.data.authors.data?.name) ||
                 "unknown"}
@@ -51,12 +56,12 @@ export default function BlogInfomation({
               {" "}
               {blog.data.date
                 ? new Date(blog.data.date).toLocaleString("vi-VN", {
-                  day: "2-digit",
-                  month: "2-digit",
-                  year: "numeric",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })
                 : "N/A"}
             </p>
           </div>
