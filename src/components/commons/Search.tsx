@@ -2,8 +2,8 @@
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useState } from "react";
 export default function Search({ placeholder }: { placeholder: string }) {
+  const [visible, setVisible] = useState(true);
   const searchParams = useSearchParams();
-  const pathName = usePathname();
   const [inputValue, setInputValue] = useState(
     searchParams.get("query")?.toString() || ""
   );
@@ -17,15 +17,13 @@ export default function Search({ placeholder }: { placeholder: string }) {
       params.delete("query");
     }
     replace(`/?${params.toString()}`);
-    console.log("term:" + term);
-    console.log("searchParams:" + searchParams);
-    console.log("params:" + params);
-    console.log("pathName:" + pathName);
   }
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     handleSearch(inputValue);
+    setVisible(false);
   }
+  if (!visible) return null;
   return (
     <div className="flex justify-center w-full px-0 py-2.5">
       <label htmlFor="search" className="sr-only">

@@ -23,7 +23,7 @@ export default function HomePage(props: {
   };
   useEffect(() => {
     if (query) {
-      window.scrollBy({ top: 900, behavior: "auto" });
+      window.scrollBy({ top: 800, behavior: "auto" });
     }
   }, [query]);
   return (
