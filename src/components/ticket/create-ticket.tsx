@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export const CreateTicket = () => {
   const [status, setStatus] = useState<string | null>(null);
@@ -7,9 +7,6 @@ export const CreateTicket = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    Object.entries(formData).forEach(([key, value]) => {
-      formData.append(key, value);
-    });
     setStatus("Submitting...");
 
     try {
@@ -32,6 +29,7 @@ export const CreateTicket = () => {
       <form
         onSubmit={handleSubmit}
         className="flex flex-col gap-4 max-w-3xl w-full"
+        encType="multipart/form-data"
       >
         <input
           type="text"
@@ -55,7 +53,7 @@ export const CreateTicket = () => {
           required
         />
         <input
-          type="nunber"
+          type="number"
           name="phoneNumber"
           placeholder="Your phoneNumber"
           className="border p-2 rounded"
@@ -75,6 +73,8 @@ export const CreateTicket = () => {
           rows={4}
           required
         />
+        <label htmlFor="upload-image">upload image</label>
+        <input id="upload-image" name="uploadImage" type="file" multiple />
         <button type="submit" className="bg-blue-600 text-white p-2 rounded">
           Submit Ticket
         </button>
