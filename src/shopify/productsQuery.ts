@@ -1,6 +1,4 @@
-// lib/shopify.ts
-
-import { shopifyFetch } from "@/app/api/shopify/route";
+import { shopifyFetch } from "@/lib/shopifyFetch";
 
 export async function getProducts(limit = 10) {
   const query = `

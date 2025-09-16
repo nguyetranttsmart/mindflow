@@ -9,7 +9,7 @@ export default async function Product({ params }: Props) {
   const { slug } = await params;
   const product = await getProductDetails(slug);
   return (
-    <div className="bg-orange-300 ">
+    <div className="p-1 bg-amber-100 ">
       <ShopifyProductDetails product={product} />
     </div>
   );

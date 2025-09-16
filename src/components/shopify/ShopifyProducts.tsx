@@ -18,7 +18,7 @@ export const ShopifyProducts: FC<Props> = ({ products }) => {
             src={p.featuredImage?.url}
             alt={p.featuredImage?.altText || p.title}
           />
-          <div className="absolute flex flex-col bottom-0 left-0 right-0 bg-black/50 text-white p-2">
+          <div className="absolute flex flex-col bottom-0 left-0 right-0 bg-black/30 text-white p-2">
             <p className="text-2xl"> {p.title}</p>
             <p className="text-xl">${p.variants.edges[0]?.node.price.amount}</p>
           </div>

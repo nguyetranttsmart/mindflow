@@ -20,6 +20,7 @@ const eslintConfig = [
       "react-hooks/rules-of-hooks": "off",
       "@next/next/no-img-element": "off",
       "jsx-a11y/alt-text": "off",
+      "@typescript-eslint/no-explicit-any": "off",
     },
   },
 ];

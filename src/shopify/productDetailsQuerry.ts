@@ -1,4 +1,4 @@
-import { shopifyFetch } from "@/app/api/shopify/route";
+import { shopifyFetch } from "@/lib/shopifyFetch";
 
 export async function getProductDetails(handle: string) {
   const query = `
@@ -9,6 +9,14 @@ export async function getProductDetails(handle: string) {
         description
         category{
         name
+        }
+        images(first: 5){
+        edges {
+            node {
+              id
+              url
+            }
+          }
         }
         createdAt
         featuredImage{
